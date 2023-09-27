@@ -25,6 +25,21 @@ client.connect(broker_address, broker_port, 60)
 # Schleife für die MQTT-Kommunikation aufrechterhalten
 client.loop_start()
 
+def start_gps():
+    
+    ser = serial.Serial(serial_port, baud_rate, timeout = 1)
+    command = "AT+CGPS=1\r\n"
+    ser.write(command.encode('utf-8'))
+    time.sleep(5)
+    response = ser.readline().decode('utf-8').strip()
+    print(response)
+    if response: 
+        read_gps_data()
+
+    else:
+        print("Modul nicht erfolgreich gestartet.")
+
+
 # GPS-Daten aus dem Modul
 def read_gps_data():
 
@@ -106,7 +121,7 @@ def read_gps_data():
 
 #Loop für den zyklischenn Transfer der Daten
 while True:
-    read_gps_data()
+    start_gps()
     time.sleep(10)
 
 if __name__ == "__main__":

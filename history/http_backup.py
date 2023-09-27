@@ -71,15 +71,15 @@ def read_gps_data():
                             
                             
                             
-                            node_red_url = 'http://51.144.148.72:8080/api/v1/BJebdbC5PJXAsmXiQgjJ/telemetry'  # Passe die URL an
+                            url = 'YOUR HTTP ADRESS'  # Passe die URL an
                             gps_data = {
                                 'latitude': latitude,
                                 'longitude': longitude
                             }
                             
 
-                            response = requests.post(node_red_url, json=gps_data)
-                            print("X")
+                            response = requests.post(url, json=gps_data)
+                            
 
                             if response.status_code == 200:
                                 print("Daten erfolgreich gesendet!")
