@@ -7,11 +7,8 @@ import serial
 serial_port = '/dev/ttyUSB2'
 baud_rate = 115200
 
-# ThingsBoard MQTT-Broker-Einstellungen (Anpassen)
-broker_address = "51.144.148.72"
-broker_port = 1883
-access_token = "hm12Dp0Hob9Lzw8yX9e2"
-mqtt_topic = "v1/devices/roboter/telemetry"
+# ThingsBoard MQTT-Broker-Einstellungen 
+from config import broker_address, broker_port, access_token, mqtt_topic
 
 # MQTT Callback-Funktion, die aufgerufen wird, wenn die Verbindung hergestellt ist
 def on_connect(client, userdata, flags, rc):
