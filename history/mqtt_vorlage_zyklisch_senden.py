@@ -3,11 +3,7 @@ import json
 import time
 
 # ThingsBoard MQTT-Broker-Einstellungen (Anpassen)
-broker_address = "51.144.148.72"
-broker_port = 1883
-access_token = "hm12Dp0Hob9Lzw8yX9e2"
-mqtt_topic = "v1/devices/roboter/telemetry"
-
+from config import broker_address, broker_port, access_token, mqtt_topic
 
 
 # MQTT Callback-Funktion, die aufgerufen wird, wenn die Verbindung hergestellt ist
